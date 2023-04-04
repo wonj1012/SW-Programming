@@ -4,6 +4,8 @@ Name: 최원재
 ID: 2020147530
 """
 
+from typing import Tuple
+
 def q1(my_name: str) -> bool:
     """
     입력받은 이름과 인자로 받은 이름이 같은지 확인하여 출입 가능 여부를 반환합니다.
@@ -38,7 +40,7 @@ def q2(password: str) -> bool:
         print("잘못 입력 하셨습니다.")
         return False
 
-def q3():
+def q3() -> None:
     """
     출생 후 경과한 개월 수를 입력받고, 각 백신 접종 대상 여부를 출력합니다.
     """
@@ -76,7 +78,7 @@ def q4() -> bool:
     print("생산을 허가함")
     return True
 
-def q5():
+def q5() -> None:
     """
     이름, 키, 몸무게를 입력받아, BMI 지수와 상태를 출력합니다.
     """
@@ -98,7 +100,7 @@ def q5():
     print(f"{name}님의 키는 {height}cm이고 몸무게는 {weight}kg입니다."
           f"BMI 지수는 {bmi}입니다. {status}입니다.")
     
-def q6():
+def q6() -> None:
     """
     음료수의 종류와 가격을 딕셔너리로 저장하고, 금액과 선택한 음료수를 입력받아, 거스름돈과 함께 음료수를 출력합니다.
     """
@@ -116,7 +118,7 @@ def q6():
     if money < 0: return
 
     print("선택)", end=' ')
-    for index in beverage_dict:
+    for index in beverage_dict.keys():
         print(f"{index}-{beverage_dict[index]['name']}", end=' ')
     choice = int(input(": "))
 
@@ -137,7 +139,7 @@ def q6():
           f"================================\n"
           f"잔돈 {money}원 반환합니다.")
     
-def q7():
+def q7() -> None:
     """
     폐구간 내의 짝수와 홀수의 합을 구하는 코드입니다. for문을 사용합니다.
     """
@@ -157,7 +159,7 @@ def q7():
     print(f"{a}부터 {b}까지 짝수의 합은 {even_sum}\n"
           f"{a}부터 {b}까지 홀수의 합은 {odd_sum}\n")
 
-def q8():
+def q8() -> None:
     """
     폐구간 내의 짝수와 홀수의 합을 구하는 코드입니다. while문을 사용합니다.
     """
@@ -201,7 +203,7 @@ def q9(password: str) -> bool:
     print("5회 입력 오류")
     return False
 
-def q10(answer: int):
+def q10(answer: int) -> None:
     """
     추측한 숫자가 정답과 일치하는지 확인하는 게임입니다. 추측한 숫자가 정답보다 크면 'down', 작으면 'up'을 출력합니다.
 
@@ -221,7 +223,7 @@ def q10(answer: int):
             print("정답")
             return
 
-def q11():
+def q11() -> None:
     """
     입력받은 온도와 온도 포맷(C/F)에 따라 화씨와 섭씨를 변환하여 출력합니다.
     """
@@ -241,16 +243,42 @@ def q11():
     else:
         return
 
+def execute_question() -> None:
+    num = int(input("테스트하고 싶은 문항의 번호를 입력하시오. (0: 전부 테스트): "))
+    if num == 1:
+        q1("최원재")
+    elif num == 2:
+        q2("0610")
+    elif num == 3:
+        q3()
+    elif num == 4:
+        q4()
+    elif num == 5:
+        q5()
+    elif num == 6:
+        q6()
+    elif num == 7:
+        q7()
+    elif num == 8:
+        q8()
+    elif num == 9:
+        q9("1610")
+    elif num == 10:
+        q10(50)
+    elif num == 11:
+        q11()
+    else:
+        q1("최원재")
+        q2("0610")
+        q3()
+        q4()
+        q5()
+        q6()
+        q7()
+        q8()
+        q9("1610")
+        q10(50)
+        q11()
 
 if __name__ == "__main__":
-    q1("최원재")
-    q2("0610")
-    q3()
-    q4()
-    q5()
-    q6()
-    q7()
-    q8()
-    q9("1610")
-    q10(50)
-    q11()
+    execute_question()

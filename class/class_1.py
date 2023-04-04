@@ -4,21 +4,6 @@
 
 from typing import List, Tuple
 from time import time
-
-def q1(n: int):
-    """
-    3.6.1
-    """
-    for i in range(n - 1, -1, -1):
-        print(' ' * i + '#')
-
-
-def q2(n: int):
-    """
-    3.6.2
-    """
-    for i in range(n):
-        print(' ' * (n - i - 1) + '+' * (2 * i + 1))
     
 def get_primes(num: int) -> Tuple[List[int], float]:
     """
@@ -48,10 +33,57 @@ def get_primes_class(num: int) -> Tuple[List[int], float]:
 
     return primes, time() - start_time
 
+def even_odd_sum(a: int, b: int) -> Tuple[int, int, float]:
+    """
+    주어진 폐구간 내 짝수의 합과 홀수의 합을 반환합니다.
+    시간 복잡도는 O(1)
+
+    Args:
+        a (int): 폐구간의 시작값
+        b (int): 폐구간의 끝값
+
+    Returns:
+        Tuple[int, int, float]: 폐구간 내의 짝수의 합, 홀수의 합, 걸린 시간
+    """
+    start_time = time()
+    even_sum = ( (b//2) * (b//2 + 1) - (a//2) * (a//2 - 1) ) if a % 2 == 0 else ( (b//2) * (b//2 + 1) - ((a-1)//2) * ((a-1)//2) )
+    odd_sum = ( ((b+1)//2) ** 2 - (a//2) ** 2 ) if a % 2 == 0 else ( ((b+1)//2) ** 2 - ((a+1)//2) ** 2 )
+    return even_sum, odd_sum, time() - start_time
+
+def even_odd_sum_class(a: int, b: int) -> Tuple[int, int, float]:
+    """
+    주어진 폐구간 내 짝수의 합과 홀수의 합을 반환합니다.
+    시간 복잡도는 O(n)
+
+    Args:
+        a (int): 폐구간의 시작값
+        b (int): 폐구간의 끝값
+
+    Returns:
+        Tuple[int, int, float]: 폐구간 내의 짝수의 합, 홀수의 합, 걸린 시간
+    """
+    start_time = time()
+
+    even_sum = 0
+    odd_sum = 0
+
+    for n in range(a, b+1):
+        if n % 2 == 0:
+            even_sum += n
+        else:
+            odd_sum += n
+
+    return even_sum, odd_sum, time() - start_time
+
 if __name__ == "__main__":
-    # q1(7)
-    # q2(5)
+    # get_primes functions comparison
     primes, elapsed_time = get_primes(50000)
+    print(len(primes), elapsed_time)
     primes_c, elapsed_time_c = get_primes_class(50000)
-    print(len(primes), len(primes_c))
-    print(elapsed_time, elapsed_time_c, elapsed_time_c / elapsed_time)
+    print(len(primes_c), elapsed_time_c)
+    print(elapsed_time_c / elapsed_time)
+
+    # even_odd_sum functions comparison
+    print(even_odd_sum(1, 500000000))
+    print(even_odd_sum_class(1, 500000000))
+
