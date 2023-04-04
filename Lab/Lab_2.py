@@ -102,29 +102,41 @@ def q6():
     """
     음료수의 종류와 가격을 딕셔너리로 저장하고, 금액과 선택한 음료수를 입력받아, 거스름돈과 함께 음료수를 출력합니다.
     """
-    beverages = [{'name': "사이다", 'price': 1500},
+    beverage_dict = [{'name': "사이다", 'price': 1500},
                  {'name': "콜라", 'price': 1800},
                  {'name': "물", 'price': 1200}]
+    
+    beverage_dict = {1: {'name': "사이다", 'price': 1500},
+                     2: {'name': "콜라", 'price': 1800},
+                     3: {'name': "물", 'price': 1200}}
 
-    for beverage in beverages:
+    for beverage in beverage_dict.values():
         print(f"{beverage['name']}-{beverage['price']}", end=' ')
 
     print("\n================================")
     money = int(input("금액을 입력하시오: "))
 
     print("선택)", end=' ')
-    index = 1
-    for beverage in beverages:
-        print(f"{index}-{beverage['name']}", end=' ')
-        index += 1
+    for index in beverage_dict:
+        print(f"{index}-{beverage_dict[index]['name']}", end=' ')
     choice = int(input(": "))
 
-    selected_beverage = beverages[choice-1]
-    change = money - selected_beverage['price']
+    selected_beverage = beverage_dict[choice]
+
+    if (money - selected_beverage['price']) < 0:
+        print(f"음료를 사실 수 없습니다.\n"
+              f"================================\n"
+              f"잔돈 {money}원 반환합니다")
+        return
+    money -= selected_beverage['price']
+
+    josa = '가'
+    if (ord(selected_beverage['name'][-1]) - ord('가')) % 28:
+        josa = '이'
     
-    print(f"{selected_beverage['name']}이 나왔습니다.\n"
+    print(f"{selected_beverage['name']}{josa} 나왔습니다.\n"
           f"================================\n"
-          f"잔돈 {change}원 반환합니다.")
+          f"잔돈 {money}원 반환합니다.")
     
 def q7():
     """
