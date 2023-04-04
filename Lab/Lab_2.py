@@ -115,6 +115,7 @@ def q6():
 
     print("\n================================")
     money = int(input("금액을 입력하시오: "))
+    if money < 0: return
 
     print("선택)", end=' ')
     for index in beverage_dict:
@@ -144,6 +145,7 @@ def q7():
     """
     a = int(input("a 입력: "))
     b = int(input("b 입력: "))
+    if a > b: return
 
     even_sum = 0
     odd_sum = 0
@@ -163,6 +165,7 @@ def q8():
     """
     a = int(input("a 입력: "))
     b = int(input("b 입력: "))
+    if a > b: return
 
     even_sum = 0
     odd_sum = 0
@@ -242,14 +245,14 @@ def q11():
 
 
 if __name__ == "__main__":
-    q1("최원재")
-    q2("0610")
-    q3()
-    q4()
-    q5()
+    # q1("최원재")
+    # q2("0610")
+    # q3()
+    # q4()
+    # q5()
     q6()
-    q7()
-    q8()
-    q9("1610")
-    q10(50)
-    q11()
+    # q7()
+    # q8()
+    # q9("1610")
+    # q10(50)
+    # q11()
