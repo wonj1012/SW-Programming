@@ -33,7 +33,7 @@ def get_primes_class(num: int) -> Tuple[List[int], float]:
 
     return primes, time() - start_time
 
-def even_odd_sum(a: int, b: int) -> Tuple[int, int, float]:
+def even_odd_sum(a: int, b: int) -> Tuple[Tuple[int, int], float]:
     """
     주어진 폐구간 내 짝수의 합과 홀수의 합을 반환합니다.
     시간 복잡도는 O(1)
@@ -43,14 +43,14 @@ def even_odd_sum(a: int, b: int) -> Tuple[int, int, float]:
         b (int): 폐구간의 끝값
 
     Returns:
-        Tuple[int, int, float]: 폐구간 내의 짝수의 합, 홀수의 합, 걸린 시간
+        Tuple[Tuple[int, int], float]: (폐구간 내의 짝수의 합, 홀수의 합), 걸린 시간
     """
     start_time = time()
     even_sum = ( (b//2) * (b//2 + 1) - (a//2) * (a//2 - 1) ) if a % 2 == 0 else ( (b//2) * (b//2 + 1) - ((a-1)//2) * ((a-1)//2) )
-    odd_sum = ( ((b+1)//2) ** 2 - (a//2) ** 2 ) if a % 2 == 0 else ( ((b+1)//2) ** 2 - ((a+1)//2) ** 2 )
-    return even_sum, odd_sum, time() - start_time
+    odd_sum = ( ((b+1)//2) ** 2 - (a//2) ** 2 + 1) if a % 2 == 0 else ( ((b+1)//2) ** 2 - ((a+1)//2) ** 2 + 1 )
+    return (even_sum, odd_sum), time() - start_time
 
-def even_odd_sum_class(a: int, b: int) -> Tuple[int, int, float]:
+def even_odd_sum_class(a: int, b: int) -> Tuple[Tuple[int, int], float]:
     """
     주어진 폐구간 내 짝수의 합과 홀수의 합을 반환합니다.
     시간 복잡도는 O(n)
@@ -60,7 +60,7 @@ def even_odd_sum_class(a: int, b: int) -> Tuple[int, int, float]:
         b (int): 폐구간의 끝값
 
     Returns:
-        Tuple[int, int, float]: 폐구간 내의 짝수의 합, 홀수의 합, 걸린 시간
+        Tuple[Tuple[int, int], float]: (폐구간 내의 짝수의 합, 홀수의 합), 걸린 시간
     """
     start_time = time()
 
@@ -73,7 +73,7 @@ def even_odd_sum_class(a: int, b: int) -> Tuple[int, int, float]:
         else:
             odd_sum += n
 
-    return even_sum, odd_sum, time() - start_time
+    return (even_sum, odd_sum), time() - start_time
 
 if __name__ == "__main__":
     # get_primes functions comparison
