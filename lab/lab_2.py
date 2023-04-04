@@ -102,13 +102,11 @@ def q6():
     """
     음료수의 종류와 가격을 딕셔너리로 저장하고, 금액과 선택한 음료수를 입력받아, 거스름돈과 함께 음료수를 출력합니다.
     """
-    beverage_dict = [{'name': "사이다", 'price': 1500},
-                 {'name': "콜라", 'price': 1800},
-                 {'name': "물", 'price': 1200}]
-    
-    beverage_dict = {1: {'name': "사이다", 'price': 1500},
-                     2: {'name': "콜라", 'price': 1800},
-                     3: {'name': "물", 'price': 1200}}
+    beverage_dict = {
+        1: {'name': "사이다", 'price': 1500},
+        2: {'name': "콜라", 'price': 1800},
+        3: {'name': "물", 'price': 1200}
+    }
 
     for beverage in beverage_dict.values():
         print(f"{beverage['name']}-{beverage['price']}", end=' ')
@@ -245,14 +243,14 @@ def q11():
 
 
 if __name__ == "__main__":
-    # q1("최원재")
-    # q2("0610")
-    # q3()
-    # q4()
-    # q5()
+    q1("최원재")
+    q2("0610")
+    q3()
+    q4()
+    q5()
     q6()
-    # q7()
-    # q8()
-    # q9("1610")
-    # q10(50)
-    # q11()
+    q7()
+    q8()
+    q9("1610")
+    q10(50)
+    q11()
