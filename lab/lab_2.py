@@ -249,7 +249,7 @@ def execute_question(num: int) -> None:
         func = globals()[func_name]
         func()
     else:
-        print("Incorrect Question Number")
+        print("Invalid Question Number")
 
 
 if __name__ == "__main__":
