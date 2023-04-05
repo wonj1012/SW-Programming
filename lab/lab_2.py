@@ -6,7 +6,7 @@ ID: 2020147530
 
 from typing import Tuple
 
-def q1(my_name: str) -> bool:
+def q1(my_name: str = "최원재") -> bool:
     """
     입력받은 이름과 인자로 받은 이름이 같은지 확인하여 출입 가능 여부를 반환합니다.
 
@@ -23,7 +23,7 @@ def q1(my_name: str) -> bool:
         print("출입통제")
         return False
 
-def q2(password: str) -> bool:
+def q2(password: str = "0610") -> bool:
     """
     입력받은 비밀번호와 인자로 받은 비밀번호가 같은지 확인하여 메세지를 출력하고 결과를 반환합니다.
 
@@ -181,7 +181,7 @@ def q8() -> None:
     print(f"{a}부터 {b}까지 짝수의 합은 {even_sum}\n"
           f"{a}부터 {b}까지 홀수의 합은 {odd_sum}\n")
 
-def q9(password: str) -> bool:
+def q9(password: str = "1610") -> bool:
     """
     입력받은 비밀번호와 인자로 받은 비밀번호가 같은지 확인하여 로그인 여부를 반환합니다.
 
@@ -203,7 +203,7 @@ def q9(password: str) -> bool:
     print("5회 입력 오류")
     return False
 
-def q10(answer: int) -> None:
+def q10(answer: int = 50) -> None:
     """
     추측한 숫자가 정답과 일치하는지 확인하는 게임입니다. 추측한 숫자가 정답보다 크면 'down', 작으면 'up'을 출력합니다.
 
@@ -243,42 +243,15 @@ def q11() -> None:
     else:
         return
 
-def execute_question() -> None:
-    num = int(input("테스트하고 싶은 문항의 번호를 입력하시오. (0: 전부 테스트): "))
-    if num == 1:
-        q1("최원재")
-    elif num == 2:
-        q2("0610")
-    elif num == 3:
-        q3()
-    elif num == 4:
-        q4()
-    elif num == 5:
-        q5()
-    elif num == 6:
-        q6()
-    elif num == 7:
-        q7()
-    elif num == 8:
-        q8()
-    elif num == 9:
-        q9("1610")
-    elif num == 10:
-        q10(50)
-    elif num == 11:
-        q11()
+def execute_question(num: int) -> None:
+    func_name = f"q{num}"
+    if func_name in globals():
+        func = globals()[func_name]
+        func()
     else:
-        q1("최원재")
-        q2("0610")
-        q3()
-        q4()
-        q5()
-        q6()
-        q7()
-        q8()
-        q9("1610")
-        q10(50)
-        q11()
+        print("Incorrect Question Number")
+
 
 if __name__ == "__main__":
-    execute_question()
+    for i in range(1, 12):
+        execute_question(i)
