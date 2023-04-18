@@ -14,7 +14,7 @@ def q1() -> None:
 def capitalize(word: str) -> str:
     return word[0].upper() + word[1:].lower()
 
-def q2(text: str = "seoul busan incheon deagu daejeon kwangju ulsan suwon") -> List[str]:
+def q2(text: str) -> List[str]:
     if text == "":
         text = "seoul busan incheon deagu daejeon kwangju ulsan suwon"
     cities = list(map(capitalize, text.split()))
@@ -66,7 +66,7 @@ class Q4:
         print("="*50)
         print("판매 총액 : {}".format(total_sales))
 
-    def simulate(self) -> None:
+    def run(self) -> None:
         while True:
             input_code = input("음료 코드 입력: ").upper()
             if input_code == "Q":
@@ -85,5 +85,5 @@ if __name__ == "__main__":
     q2(input("문자열 입력: "))
     q3(input("문자열 입력: "))
     q4 = Q4()
-    q4.simulate()
+    q4.run()
     
