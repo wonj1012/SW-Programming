@@ -35,31 +35,26 @@ def q3(text: str) -> List[str]:
 
 class Q4:
     def __init__(self) -> None:
-        self.name = ['카페아메리카노','돌체라떼','카페모카','화이트초코모카']
-        self.code = ['CA', 'DL', 'CM', 'WM']
-        self.price = [4500, 5900, 5500, 5900]
-        self.bev_count = len(self.code)
-        self.cnt = [0] * self.bev_count
-        self.total = [0] * self.bev_count
-        self.bev_dict = {}
-        for i in range(self.bev_count):
-            self.bev_dict[self.code[i]] = {'name': self.name[i], 'price': self.price[i], 'count': self.cnt[i], 'total': self.total[i]}
-        self.bev_df = pd.DataFrame(self.bev_dict)
-    
+        self.beverages = {
+            'CA': {'name': '카페아메리카노', 'price': 4500, 'count': 0, 'total': 0},
+            'DL': {'name': '돌체라떼', 'price': 5900, 'count': 0, 'total': 0},
+            'CM': {'name': '카페모카', 'price': 5500, 'count': 0, 'total': 0},
+            'WM': {'name': '화이트초코모카', 'price': 5900, 'count': 0, 'total': 0}
+        }
+
     def __ordering(self, code: str) -> None:
-        self.bev_df[code]['count'] += 1
-        self.bev_df[code]['total'] += self.bev_df[code]['price']
-    
+        self.beverages[code]['count'] += 1
+        self.beverages[code]['total'] += self.beverages[code]['price']
+
     def __closing(self) -> None:
         print("="*50)
         print("{:<12} {:<8} {:<8}".format("음료", "판매수량", "판매액"))
         print("="*50)
         total_sales = 0
-        for i in range(self.bev_count):
-            bev_code = self.code[i]
-            bev_name = self.name[i]
-            bev_count = self.bev_df[bev_code]['count']
-            bev_total = self.bev_df[bev_code]['total']
+        for code, beverage in self.beverages.items():
+            bev_name = beverage['name']
+            bev_count = beverage['count']
+            bev_total = beverage['total']
             total_sales += bev_total
             if bev_count > 0:
                 print("{:<12} {:<8} {:<8}".format(bev_name, bev_count, bev_total))
@@ -72,18 +67,19 @@ class Q4:
             if input_code == "Q":
                 self.__closing()
                 return
-            elif input_code in self.code:
+            elif input_code in self.beverages:
                 self.__ordering(input_code)
-                bev_name = self.bev_df[input_code]['name']
-                bev_price = self.bev_df[input_code]['price']
+                bev_name = self.beverages[input_code]['name']
+                bev_price = self.beverages[input_code]['price']
                 print("주문하신 음료는 {} 이고, 가격은 {} 입니다.".format(bev_name, bev_price))
             else:
                 continue
 
+
 if __name__ == "__main__":
-    q1()
-    q2(input("문자열 입력: "))
-    q3(input("문자열 입력: "))
+    # q1()
+    # q2(input("문자열 입력: "))
+    # q3(input("문자열 입력: "))
     q4 = Q4()
     q4.run()
     
