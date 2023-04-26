@@ -77,9 +77,9 @@ class Q4:
 
 
 if __name__ == "__main__":
-    # q1()
-    # q2(input("문자열 입력: "))
-    # q3(input("문자열 입력: "))
+    q1()
+    q2(input("문자열 입력: "))
+    q3(input("문자열 입력: "))
     q4 = Q4()
     q4.run()
     
