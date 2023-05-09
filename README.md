@@ -1,2 +1,12 @@
 # SW-Programming
-2023-1 elective course
+
+## Class
+In-class materials
+
+## Lab
+Practice problems
+## Exam
+Exam problems
+
+## Data
+Files used for practices
