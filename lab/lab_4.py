@@ -62,6 +62,7 @@ def q3(file_name: str = f"{DIR}ex08_03.txt") -> None:
     print(f"빈도수 카운트 전\n"
           f"{frequency}\n"
           f"파일 내용")
+
     with open(file_name, "w") as file:
         for _ in range(10):
             for _ in range(10):
@@ -73,6 +74,7 @@ def q3(file_name: str = f"{DIR}ex08_03.txt") -> None:
     with open(file_name, "r") as file:
         file_contents = file.read()
         print(file_contents)
+
     print(f"빈도수 카운트 후\n"
           f"{frequency}\n")
 
