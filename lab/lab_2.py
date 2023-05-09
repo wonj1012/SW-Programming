@@ -4,7 +4,6 @@ Name: 최원재
 ID: 2020147530
 """
 
-from typing import Tuple
 
 def q1(my_name: str = "최원재") -> bool:
     """
@@ -23,6 +22,7 @@ def q1(my_name: str = "최원재") -> bool:
         print("출입통제")
         return False
 
+
 def q2(password: str = "0610") -> bool:
     """
     입력받은 비밀번호와 인자로 받은 비밀번호가 같은지 확인하여 메세지를 출력하고 결과를 반환합니다.
@@ -40,6 +40,7 @@ def q2(password: str = "0610") -> bool:
         print("잘못 입력 하셨습니다.")
         return False
 
+
 def q3() -> None:
     """
     출생 후 경과한 개월 수를 입력받고, 각 백신 접종 대상 여부를 출력합니다.
@@ -56,6 +57,7 @@ def q3() -> None:
     for disease in vacc:
         if vacc[disease][0] <= month <= vacc[disease][1]:
             print(disease)
+
 
 def q4() -> bool:
     """
@@ -78,6 +80,7 @@ def q4() -> bool:
     print("생산을 허가함")
     return True
 
+
 def q5() -> None:
     """
     이름, 키, 몸무게를 입력받아, BMI 지수와 상태를 출력합니다.
@@ -99,7 +102,8 @@ def q5() -> None:
 
     print(f"{name}님의 키는 {height}cm이고 몸무게는 {weight}kg입니다."
           f"BMI 지수는 {bmi}입니다. {status}입니다.")
-    
+
+
 def q6() -> None:
     """
     음료수의 종류와 가격을 딕셔너리로 저장하고, 금액과 선택한 음료수를 입력받아, 거스름돈과 함께 음료수를 출력합니다.
@@ -115,7 +119,8 @@ def q6() -> None:
 
     print("\n================================")
     money = int(input("금액을 입력하시오: "))
-    if money < 0: return
+    if money < 0:
+        return
 
     print("선택)", end=' ')
     for index in beverage_dict.keys():
@@ -134,18 +139,20 @@ def q6() -> None:
     josa = '가'
     if (ord(selected_beverage['name'][-1]) - ord('가')) % 28:
         josa = '이'
-    
+
     print(f"{selected_beverage['name']}{josa} 나왔습니다.\n"
           f"================================\n"
           f"잔돈 {money}원 반환합니다.")
-    
+
+
 def q7() -> None:
     """
     폐구간 내의 짝수와 홀수의 합을 구하는 코드입니다. for문을 사용합니다.
     """
     a = int(input("a 입력: "))
     b = int(input("b 입력: "))
-    if a > b: return
+    if a > b:
+        return
 
     even_sum = 0
     odd_sum = 0
@@ -159,13 +166,15 @@ def q7() -> None:
     print(f"{a}부터 {b}까지 짝수의 합은 {even_sum}\n"
           f"{a}부터 {b}까지 홀수의 합은 {odd_sum}\n")
 
+
 def q8() -> None:
     """
     폐구간 내의 짝수와 홀수의 합을 구하는 코드입니다. while문을 사용합니다.
     """
     a = int(input("a 입력: "))
     b = int(input("b 입력: "))
-    if a > b: return
+    if a > b:
+        return
 
     even_sum = 0
     odd_sum = 0
@@ -181,6 +190,7 @@ def q8() -> None:
     print(f"{a}부터 {b}까지 짝수의 합은 {even_sum}\n"
           f"{a}부터 {b}까지 홀수의 합은 {odd_sum}\n")
 
+
 def q9(password: str = "1610") -> bool:
     """
     입력받은 비밀번호와 인자로 받은 비밀번호가 같은지 확인하여 로그인 여부를 반환합니다.
@@ -192,16 +202,17 @@ def q9(password: str = "1610") -> bool:
         bool: 입력받은 비밀번호와 인자로 받은 비밀번호가 같은 경우 True, 다른 경우 False를 반환합니다.
     """
     num_tries = 0
-    
+
     while num_tries < 5:
         if input("비밀번호 네 자리 입력: ") == password:
             print("로그인")
             return True
         else:
             num_tries += 1
-    
+
     print("5회 입력 오류")
     return False
+
 
 def q10(answer: int = 50) -> None:
     """
@@ -223,6 +234,7 @@ def q10(answer: int = 50) -> None:
             print("정답")
             return
 
+
 def q11() -> None:
     """
     입력받은 온도와 온도 포맷(C/F)에 따라 화씨와 섭씨를 변환하여 출력합니다.
@@ -242,6 +254,7 @@ def q11() -> None:
         return
     else:
         return
+
 
 def execute_question(num: int) -> None:
     func_name = f"q{num}"

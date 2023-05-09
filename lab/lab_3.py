@@ -1,7 +1,16 @@
+"""
+SW Programming Lab #3
+Name: 최원재
+ID: 2020147530
+"""
+
 from typing import List
-import pandas as pd
+
 
 def q1() -> None:
+    """
+    Get the shape and the size of the shape from the user and calculate the area.
+    """
     shape = input("select shape >>> 1-rectangle, 2-circle: ")
     if shape == "1":
         width = float(input("input width: "))
@@ -10,18 +19,48 @@ def q1() -> None:
     elif shape == "2":
         radius = float(input("input radius: "))
         print(f"circle area = {3.14 * radius ** 2}")
-        
+
+
 def capitalize(word: str) -> str:
+    """
+    Capitalize the first letter of the word.
+
+    Args:
+        word (str): The word to capitalize.
+
+    Returns:
+        str: The capitalized word.
+    """
     return word[0].upper() + word[1:].lower()
 
+
 def q2(text: str) -> List[str]:
+    """
+    Split the text by space and capitalize each word.
+
+    Args:
+        text (str): The text to split.
+
+    Returns:
+        List[str]: The list of capitalized words.
+    """
     if text == "":
         text = "seoul busan incheon deagu daejeon kwangju ulsan suwon"
     cities = list(map(capitalize, text.split()))
     print(f"입력된 도시 이름: {cities}")
     return cities
 
+
 def q3(text: str) -> List[str]:
+    """
+    Split the text by space and capitalize each word.
+
+    Args:
+        text (str): The text to split.
+
+    Returns:
+        List[str]: The list of capitalized words.
+    """
     cities = q2(text)
     input_city = capitalize(input("추가 혹은 제거할 도시 이름: "))
     if input_city in cities:
@@ -34,6 +73,10 @@ def q3(text: str) -> List[str]:
 
 
 class Q4:
+    """
+    A class that manages the sales of beverages.
+    """
+
     def __init__(self) -> None:
         self.beverages = {
             'CA': {'name': '카페아메리카노', 'price': 4500, 'count': 0, 'total': 0},
@@ -43,10 +86,19 @@ class Q4:
         }
 
     def __ordering(self, code: str) -> None:
+        """
+        Order a beverage.
+
+        Args:
+            code (str): The code of the beverage to order.
+        """
         self.beverages[code]['count'] += 1
         self.beverages[code]['total'] += self.beverages[code]['price']
 
     def __closing(self) -> None:
+        """
+        Print the sales report.
+        """
         print("="*50)
         print("{:<12} {:<8} {:<8}".format("음료", "판매수량", "판매액"))
         print("="*50)
@@ -57,11 +109,15 @@ class Q4:
             bev_total = beverage['total']
             total_sales += bev_total
             if bev_count > 0:
-                print("{:<12} {:<8} {:<8}".format(bev_name, bev_count, bev_total))
+                print("{:<12} {:<8} {:<8}".format(
+                    bev_name, bev_count, bev_total))
         print("="*50)
         print("판매 총액 : {}".format(total_sales))
 
     def run(self) -> None:
+        """
+        Run the program.
+        """
         while True:
             input_code = input("음료 코드 입력: ").upper()
             if input_code == "Q":
@@ -82,4 +138,3 @@ if __name__ == "__main__":
     q3(input("문자열 입력: "))
     q4 = Q4()
     q4.run()
-    
