@@ -2,6 +2,7 @@
 SW Programming Lab #3
 Name: 최원재
 ID: 2020147530
+Date: 2023-04-12
 """
 
 from typing import List

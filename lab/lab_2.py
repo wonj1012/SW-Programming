@@ -2,6 +2,7 @@
 SW Programming Lab #2
 Name: 최원재
 ID: 2020147530
+Date: 2023-03-24
 """
 
 

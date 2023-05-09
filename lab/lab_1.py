@@ -1,10 +1,12 @@
 """
-SW Programming Lab#1
+SW Programming Lab #1
 Name: 최원재
 ID: 2020147530
+Date: 2023-03-15
 """
 
 # input 연습문제 1
+from math import pi
 age = int(input("당신의 나이는 몇 살입니까? "))
 print(f"당신은 {age} 년을 살았습니다.")
 
@@ -42,7 +44,6 @@ len_2 = float(input("두번째 직각변의 길이(cm) : "))
 print(f"빗변의 길이는 {(len_1**2 + len_2**2) ** 0.5} cm입니다.")
 
 # 원의 넓이 구하기
-from math import pi
 radius = float(input("원의 반지름을 입력하세요(cm) : "))
 print(f"원의 둘레는 {radius * pi * 2} cm이고 원의 넓이는 {radius**2*pi} cm입니다.")
 
