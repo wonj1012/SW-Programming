@@ -1,3 +1,10 @@
+"""
+SW Programming Lab #7
+Name: 최원재
+ID: 2020147530
+Date: 2023-05-26
+"""
+
 import requests
 from bs4 import BeautifulSoup
 import csv
