@@ -4,11 +4,10 @@ import csv
 from typing import List
 
 
-def get_bs_obj(url: str) -> BeautifulSoup:
-    result = requests.get(url)
-    result.raise_for_status()
-    bs_obj = BeautifulSoup(result.content, "lxml")
-    return bs_obj
+def get_soup(url: str) -> BeautifulSoup:
+    response = requests.get(url)
+    response.raise_for_status()
+    return BeautifulSoup(response.text, 'lxml')
 
 
 def write_csv(data: List[List[str]], column_names: List[str], path: str) -> None:
@@ -20,7 +19,7 @@ def write_csv(data: List[List[str]], column_names: List[str], path: str) -> None
 
 
 if __name__ == "__main__":
-    soup_imdb = get_bs_obj("https://www.imdb.com/chart/top")
+    soup_imdb = get_soup("https://www.imdb.com/chart/top")
 
     data = []
     for tr in soup_imdb.find("tbody", {"class": "lister-list"}).find_all("tr"):
