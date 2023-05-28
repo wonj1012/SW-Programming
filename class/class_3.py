@@ -32,4 +32,4 @@ if __name__ == "__main__":
             "span", {"class": "secondaryInfo"}).get_text().strip("()")
         data.append([rank, title, rating, year])
     write_csv(data=data, column_names=["rank", "title", "rating", "year"],
-              path="data/imdb_top250.csv")
+              path="data/class_3/imdb_top250.csv")
