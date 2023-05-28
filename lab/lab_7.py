@@ -18,7 +18,7 @@ def get_soup(url: str) -> BeautifulSoup:
 
 class Q1:
     def __init__(self):
-        self.filepath = "data/movies.csv"
+        self.filepath = "data/lab_7/movies.csv"
 
     def solve(self) -> None:
         soup = get_soup("https://movie.daum.net/ranking/reservation")
@@ -55,7 +55,7 @@ class Q1:
 
 class Q2:
     def __init__(self):
-        self.filepath = "data/imdb_episodes.csv"
+        self.filepath = "data/lab_7/imdb_episodes.csv"
 
     def solve(self) -> None:
         # Open CSV file to write

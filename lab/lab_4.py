@@ -7,7 +7,7 @@ Date: 2023-05-10
 
 from random import randint
 
-DIR = "data/"
+DIR = "data/lab4/"
 
 
 def q1(file_name: str = f"{DIR}ex08_01.txt") -> None:
