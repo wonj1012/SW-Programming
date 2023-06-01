@@ -29,13 +29,14 @@ class Q1:
 
     def __init__(self):
         self.filepath = "data/lab_7/movies.csv"
+        self.url = "https://movie.daum.net/ranking/reservation"
 
     def solve(self) -> None:
         """
         Fetches movie data from the webpage, saves the data to a CSV file,
         and prints the movie data.
         """
-        soup = get_soup("https://movie.daum.net/ranking/reservation")
+        soup = get_soup(self.url)
 
         # Writing to the file
         with open(self.filepath, "w", encoding="utf-8-sig", newline="") as file:
@@ -76,6 +77,7 @@ class Q2:
 
     def __init__(self):
         self.filepath = "data/lab_7/imdb_episodes.csv"
+        self.baseurl = "https://www.imdb.com/title/tt0285331/episodes?season="
 
     def solve(self) -> None:
         """
@@ -88,7 +90,7 @@ class Q2:
             writer.writerow(["시즌", "제목", "리뷰수", "평점", "줄거리"])
 
             for season in range(1, 9):  # For each season
-                url = f"https://www.imdb.com/title/tt0285331/episodes?season={season}"
+                url = self.baseurl + season
                 soup = get_soup(url)
 
                 # For each episode
