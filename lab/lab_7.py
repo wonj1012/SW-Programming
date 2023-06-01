@@ -90,7 +90,7 @@ class Q2:
             writer.writerow(["시즌", "제목", "리뷰수", "평점", "줄거리"])
 
             for season in range(1, 9):  # For each season
-                url = self.baseurl + season
+                url = self.baseurl + str(season)
                 soup = get_soup(url)
 
                 # For each episode
