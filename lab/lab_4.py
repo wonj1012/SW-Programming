@@ -21,11 +21,11 @@ def q1(file_name: str = f"{DIR}ex08_01.txt") -> None:
 
     word_list = input_str.split()
 
-    with open(file_name, "w") as file:
+    with open(file_name, "w", encoding="UTF-8") as file:
         for word in word_list:
             file.write(word + "\n")
 
-    with open(file_name, "r") as file:
+    with open(file_name, "r", encoding="UTF-8") as file:
         file_contents = file.read()
         print(file_contents)
 
@@ -38,13 +38,13 @@ def q2(file_name: str = f"{DIR}ex08_02.txt") -> None:
     Args:
         file_name (str): The name of the file to write.
     """
-    with open(file_name, "w") as file:
+    with open(file_name, "w", encoding="UTF-8") as file:
         for _ in range(10):
             for _ in range(10):
                 file.write(str(randint(1, 45)) + " ")
             file.write("\n")
 
-    with open(file_name, "r") as file:
+    with open(file_name, "r", encoding="UTF-8") as file:
         file_contents = file.read()
         print(file_contents)
 
@@ -59,11 +59,9 @@ def q3(file_name: str = f"{DIR}ex08_03.txt") -> None:
         file_name (str): The name of the file to write.
     """
     frequency = [0] * 45
-    print(f"빈도수 카운트 전\n"
-          f"{frequency}\n"
-          f"파일 내용")
+    print(f"빈도수 카운트 전\n" f"{frequency}\n" f"파일 내용")
 
-    with open(file_name, "w") as file:
+    with open(file_name, "w", encoding="UTF-8") as file:
         for _ in range(10):
             for _ in range(10):
                 num = randint(1, 45)
@@ -71,12 +69,11 @@ def q3(file_name: str = f"{DIR}ex08_03.txt") -> None:
                 file.write(str(num) + " ")
             file.write("\n")
 
-    with open(file_name, "r") as file:
+    with open(file_name, "r", encoding="UTF-8") as file:
         file_contents = file.read()
         print(file_contents)
 
-    print(f"빈도수 카운트 후\n"
-          f"{frequency}\n")
+    print(f"빈도수 카운트 후\n" f"{frequency}\n")
 
 
 def q4(file_name: str = f"{DIR}ex08_04.txt") -> None:
@@ -86,7 +83,7 @@ def q4(file_name: str = f"{DIR}ex08_04.txt") -> None:
     Args:
         file_name (str): The name of the file to read.
     """
-    with open(file_name, "r") as file:
+    with open(file_name, "r", encoding="UTF-8") as file:
         lines = file.readlines()
         for line in lines:
             print(line)

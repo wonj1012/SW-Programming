@@ -14,11 +14,11 @@ def q1() -> None:
 
 def q2() -> None:
     radius = float(input("반지름 입력: "))
-    sqrt_radius = int(radius ** 0.5)
+    sqrt_radius = int(radius**0.5)
     print(sqrt_radius)
     for x in range(sqrt_radius + 1):
         for y in range(sqrt_radius + 1):
-            if x ** 2 + y ** 2 <= radius ** 2:
+            if x**2 + y**2 <= radius**2:
                 print(f"({x}, {y})")
 
 
@@ -47,7 +47,7 @@ def q4() -> None:
 
     # 도우 면적 계산
     def calculate_area(radius):
-        return PI * (radius ** 2)
+        return PI * (radius**2)
 
     initial_area = calculate_area(initial_radius)
     print(f"초기 도우 면적 : {initial_area:.6f}")
@@ -72,21 +72,27 @@ def q4() -> None:
 class Q5:
     def __init__(self) -> None:
         self.menu_dict = {
-            1: {'name': 'steak', 'price': 25000},
-            2: {'name': 'pizza', 'price': 28500},
-            3: {'name': 'pasta', 'price': 14000},
-            4: {'name': 'hamburger', 'price': 8500},
-            5: {'name': 'sandwitch', 'price': 4500}
+            1: {"name": "steak", "price": 25000},
+            2: {"name": "pizza", "price": 28500},
+            3: {"name": "pasta", "price": 14000},
+            4: {"name": "hamburger", "price": 8500},
+            5: {"name": "sandwitch", "price": 4500},
         }
         self.guest_num = 0
         self.total_price = 0
 
-    def receive_order(self, code) -> bool:
+    def receive_order(self, code: int) -> bool:
+        """
+        Args:
+            code (int): menu code
+
+        Returns:
+            bool: False if code is not in menu_dict, True otherwise.
+        """
         if code in self.menu_dict:
-            self.total_price += self.menu_dict[code]['price']
+            self.total_price += self.menu_dict[code]["price"]
             return True
-        else:
-            return False
+        return False
 
     def run(self) -> None:
         for code, menu in self.menu_dict.items():

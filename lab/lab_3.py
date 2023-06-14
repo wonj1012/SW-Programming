@@ -80,10 +80,10 @@ class Q4:
 
     def __init__(self) -> None:
         self.beverages = {
-            'CA': {'name': '카페아메리카노', 'price': 4500, 'count': 0, 'total': 0},
-            'DL': {'name': '돌체라떼', 'price': 5900, 'count': 0, 'total': 0},
-            'CM': {'name': '카페모카', 'price': 5500, 'count': 0, 'total': 0},
-            'WM': {'name': '화이트초코모카', 'price': 5900, 'count': 0, 'total': 0}
+            "CA": {"name": "카페아메리카노", "price": 4500, "count": 0, "total": 0},
+            "DL": {"name": "돌체라떼", "price": 5900, "count": 0, "total": 0},
+            "CM": {"name": "카페모카", "price": 5500, "count": 0, "total": 0},
+            "WM": {"name": "화이트초코모카", "price": 5900, "count": 0, "total": 0},
         }
 
     def __ordering(self, code: str) -> None:
@@ -93,27 +93,26 @@ class Q4:
         Args:
             code (str): The code of the beverage to order.
         """
-        self.beverages[code]['count'] += 1
-        self.beverages[code]['total'] += self.beverages[code]['price']
+        self.beverages[code]["count"] += 1
+        self.beverages[code]["total"] += self.beverages[code]["price"]
 
     def __closing(self) -> None:
         """
         Print the sales report.
         """
-        print("="*50)
-        print("{:<12} {:<8} {:<8}".format("음료", "판매수량", "판매액"))
-        print("="*50)
+        print("=" * 50)
+        print(f"{'음료':<12} {'판매수량':<8} {'판매액':<8}")
+        print("=" * 50)
         total_sales = 0
         for code, beverage in self.beverages.items():
-            bev_name = beverage['name']
-            bev_count = beverage['count']
-            bev_total = beverage['total']
+            bev_name = beverage["name"]
+            bev_count = beverage["count"]
+            bev_total = beverage["total"]
             total_sales += bev_total
             if bev_count > 0:
-                print("{:<12} {:<8} {:<8}".format(
-                    bev_name, bev_count, bev_total))
-        print("="*50)
-        print("판매 총액 : {}".format(total_sales))
+                print(f"{bev_name:<12} {bev_count:<8} {bev_total:<8}")
+        print("=" * 50)
+        print(f"판매 총액 : {total_sales}")
 
     def run(self) -> None:
         """
@@ -126,9 +125,9 @@ class Q4:
                 return
             elif input_code in self.beverages:
                 self.__ordering(input_code)
-                bev_name = self.beverages[input_code]['name']
-                bev_price = self.beverages[input_code]['price']
-                print("주문하신 음료는 {} 이고, 가격은 {} 입니다.".format(bev_name, bev_price))
+                bev_name = self.beverages[input_code]["name"]
+                bev_price = self.beverages[input_code]["price"]
+                print(f"주문하신 음료는 {bev_name} 이고, 가격은 {bev_price} 입니다.")
             else:
                 continue
 

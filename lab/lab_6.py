@@ -5,8 +5,8 @@ ID: 2020147530
 Date: 2023-05-19
 """
 
-import numpy as np
 from typing import Tuple
+import numpy as np
 import matplotlib.pyplot as plt
 
 DIR = "data/lab_6/"
@@ -14,7 +14,7 @@ DIR = "data/lab_6/"
 
 def q1(file_path: str = f"{DIR}q1.txt") -> np.ndarray:
     """
-    Generates a 10x10 array of random integers between 1 and 45, saves it to a file, 
+    Generates a 10x10 array of random integers between 1 and 45, saves it to a file,
     prints the file content and the numpy array, and returns the numpy array.
 
     :param file_path: The path where the file will be saved. Default is "data/lab_6/q1.txt"
@@ -33,7 +33,7 @@ def q1(file_path: str = f"{DIR}q1.txt") -> np.ndarray:
 
 def q2(file_path: str = f"{DIR}q2.txt") -> Tuple[np.ndarray, np.ndarray]:
     """
-    Generates a numpy array using q1 function, computes the sum of each row and each column, 
+    Generates a numpy array using q1 function, computes the sum of each row and each column,
     prints the array and the computed sums, and returns the row sums and column sums.
 
     :param file_path: The path where the file will be saved. Default is "data/lab_6/q2.txt"
@@ -45,8 +45,9 @@ def q2(file_path: str = f"{DIR}q2.txt") -> Tuple[np.ndarray, np.ndarray]:
     len_arr = len(arr)
 
     for i, row in enumerate(arr):
-        print(' '.join(f"{num:4d}" for num in row),
-              f"| {row_sum[i]:4d} | {row_sum[i] / len_arr:4.1f}")
+        print(
+            " ".join(f"{num:4d}" for num in row), f"| {row_sum[i]:4d} | {row_sum[i] / len_arr:4.1f}"
+        )
     print("-" * (len_arr * 5))
     print(*col_sum)
     print("-" * (len_arr * 5))
@@ -65,11 +66,9 @@ def q3(file_path: str = f"{DIR}q3.txt") -> None:
     row_avg = list(map(lambda x: x / len(row_sum), row_sum))
     col_avg = list(map(lambda x: x / len(col_sum), col_sum))
 
-    X = range(1, len(row_avg)+1)
-    Y1 = row_avg
-    Y2 = col_avg
-    plt.plot(X, Y1, label="row average")
-    plt.plot(X, Y2, label="column average")
+    x_values = range(1, len(row_avg) + 1)
+    plt.plot(x_values, row_avg, label="row average")
+    plt.plot(x_values, col_avg, label="column average")
     plt.xlabel("row/column number")
     plt.ylabel("value")
     plt.legend(loc="upper left")

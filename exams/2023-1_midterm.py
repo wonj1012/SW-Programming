@@ -49,7 +49,7 @@ def q3() -> None:
     line_num = int(input("행의 갯수 : "))
     for i in range(line_num, 0, -1):
         buffer = " " * (line_num - i)
-        for j in range(1, i+1):
+        for j in range(1, i + 1):
             buffer += f"{j} "
         print(buffer)
 
@@ -62,9 +62,9 @@ def q4() -> None:
     a = float(input("a 입력 : "))
     b = float(input("b 입력 : "))
     step = float(input("간격 입력 : "))
-    assert (a < b)
+    assert a < b
     while a <= b:
-        y = (a**2 + 5*a - 7) / (3*a + 2)
+        y = (a**2 + 5 * a - 7) / (3 * a + 2)
         print(f"x = {a:.6f} , y = {y:.6f}")
         a += step
 
@@ -72,12 +72,12 @@ def q4() -> None:
 class Q5:
     def __init__(self) -> None:
         self.menu_dict = {
-            0: {'name': "quit", 'price': 0},
-            1: {'name': "ivory", 'price': 23400},
-            2: {'name': "tommy", 'price': 38500},
-            3: {'name': "arena", 'price': 21000},
-            4: {'name': "metro", 'price': 36500},
-            5: {'name': "coach", 'price': 45000}
+            0: {"name": "quit", "price": 0},
+            1: {"name": "ivory", "price": 23400},
+            2: {"name": "tommy", "price": 38500},
+            3: {"name": "arena", "price": 21000},
+            4: {"name": "metro", "price": 36500},
+            5: {"name": "coach", "price": 45000},
         }
 
         self.total_price = 0
@@ -97,7 +97,7 @@ class Q5:
         if code == 0:
             return False
         else:
-            self.total_price += self.menu_dict[code]['price']
+            self.total_price += self.menu_dict[code]["price"]
             return True
 
     def run(self) -> None:
