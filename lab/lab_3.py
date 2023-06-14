@@ -104,7 +104,7 @@ class Q4:
         print(f"{'음료':<12} {'판매수량':<8} {'판매액':<8}")
         print("=" * 50)
         total_sales = 0
-        for code, beverage in self.beverages.items():
+        for beverage in self.beverages.values():
             bev_name = beverage["name"]
             bev_count = beverage["count"]
             bev_total = beverage["total"]
@@ -123,7 +123,7 @@ class Q4:
             if input_code == "Q":
                 self.__closing()
                 return
-            elif input_code in self.beverages:
+            if input_code in self.beverages:
                 self.__ordering(input_code)
                 bev_name = self.beverages[input_code]["name"]
                 bev_price = self.beverages[input_code]["price"]
